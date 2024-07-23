@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\favorite_img.png" />
+    <None Remove="Images\film_img.png" />
+    <None Remove="Images\home_img.png" />
+    <None Remove="Images\logo_img.png" />
+    <None Remove="Images\resize_button.png" />
+    <None Remove="Images\resize_button_mo.png" />
+    <None Remove="Images\shutdown_def.png" />
+    <None Remove="Images\shutdown_mo.png" />
+    <None Remove="Images\star_img.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\favorite_img.png" />
+    <Resource Include="Images\film_img.png" />
+    <Resource Include="Images\home_img.png" />
+    <Resource Include="Images\logo_img.png" />
+    <Resource Include="Images\resize_button.png" />
+    <Resource Include="Images\resize_button_mo.png" />
+    <Resource Include="Images\shutdown_def.png" />
+    <Resource Include="Images\shutdown_mo.png" />
+    <Resource Include="Images\star_img.png" />
+  </ItemGroup>
+
+</Project>

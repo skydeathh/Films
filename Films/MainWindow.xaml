@@ -1,0 +1,124 @@
+﻿<Window x:Class="Films.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Films"
+        xmlns:vm="clr-namespace:Films.ViewModels"
+        xmlns:Menu="clr-namespace:Films.Utilities"
+        mc:Ignorable="d"
+        Title="Films" 
+        MinWidth="850"
+        MinHeight="650" 
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        Background="Transparent"
+        ResizeMode="CanResizeWithGrip"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
+
+    <Window.Resources>
+        <ControlTemplate x:Key="CustomWindowTemplate" TargetType="Window">
+
+            <Grid>
+
+                <Border Background="#212529" CornerRadius="20" />
+
+                <Grid>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="228"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid HorizontalAlignment="Left" Width="228">
+
+                        <Border Background="#272B2F" CornerRadius="20,0,0,20" />
+
+                        <StackPanel Width="228">
+                            <Border Height="100" >
+                                <Grid>
+                                    <Image Source="Images/logo_img.png"
+                                       Margin="20,20,120,20"/>
+
+                                    <TextBlock Text="Films"
+                                               Style="{StaticResource Text_Style}"
+                                               Margin="100,35,20,20"
+                                               FontSize="40"/>
+                                </Grid>
+                            </Border>
+
+                            <Menu:Btn Style="{StaticResource BtnStyle}"
+                                      Command="{Binding HomeCommand}"
+                                      IsChecked="True">
+
+                                <Grid>
+                                    <Image Source="Images/home_img.png"
+                                           Style="{StaticResource Image_Style}"/>
+                                    <TextBlock Text="Home"
+                                               Style="{StaticResource Text_Style}"/>
+                                </Grid>
+
+                            </Menu:Btn>
+
+                            <Menu:Btn Style="{StaticResource BtnStyle}"
+                                      Command="{Binding FavoritesCommand}">
+
+                                <Grid>
+                                    <Image Source="Images/favorite_img.png"
+                                           Style="{StaticResource Image_Style}"/>
+                                    <TextBlock Text="Favorites"
+                                               Style="{StaticResource Text_Style}"/>
+                                </Grid>
+
+                            </Menu:Btn>
+
+                            <Menu:Btn Style="{StaticResource BtnStyle}"
+                                      Command="{Binding FilmCommand}">
+
+                                <Grid>
+                                    <Image Source="Images/film_img.png"
+                                           Style="{StaticResource Image_Style}"/>
+                                    <TextBlock Text="Last Film"
+                                               Style="{StaticResource Text_Style}"/>
+                                </Grid>
+
+                            </Menu:Btn>
+
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+
+                        <ContentControl x:Name="Pages" Content="{Binding NavigationService.CurrentView}" 
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        Margin="0,0,0,30"/>
+
+                        <Button Grid.Column="1"
+                                x:Name ="CloseApp"
+                                Style="{StaticResource ExitApp}"
+                                Click="CloseApp_Click"/>
+
+                        <Button  x:Name ="ResizeApp"
+                                Grid.Column="1"
+                                Style="{StaticResource ResizeApp}"
+                                Click="ToggleSizeButton_Click"/>
+
+                    </Grid>
+                </Grid>
+
+                <ResizeGrip HorizontalAlignment="Right"
+                            VerticalAlignment="Bottom"
+                            Margin="0,0,10,10"
+                            Width="20"
+                            Height="20"
+                            Background="Transparent"/>
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>
+
+    <Window.Template>
+        <StaticResource ResourceKey="CustomWindowTemplate"/>
+    </Window.Template>
+</Window>
